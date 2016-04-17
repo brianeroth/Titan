@@ -1,0 +1,10 @@
+.htaccess
+*.log
+sitemap.xml
+wp-config.php
+.DS_Store
+
+node_modules
+node_modules/*
+
+*/wp-content/uploads/
