@@ -108,17 +108,35 @@ add_action( 'after_setup_theme', 'titan_content_width', 0 );
  * Enqueue scripts and styles.
  */
 function titan_scripts() {
-	wp_enqueue_style( 'titan-style', get_stylesheet_uri() );
-
-    wp_enqueue_script( 'titan_script-main', get_template_directory_uri() . '/js/main.js', array('jquery'), false, true );
-
-    wp_enqueue_style( 'titan_script-style', get_template_directory_uri() . '/css/build/style.css' );
+	wp_enqueue_style( 'titan-style', get_stylesheet_uri(), null,  null);
+    wp_enqueue_style( 'titan-style-main', get_template_directory_uri() . '/css/build/style.css', null, null );
+	wp_enqueue_style( 'titan-style-gfont', 'URL TO GOOGLE FONT', false ); 
+    wp_enqueue_script( 'titan_script-main', get_template_directory_uri() . '/js/build/production.min.js', array('jquery'), false, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'titan_scripts' );
+
+/**
+ * adds scripts to the <head></head>
+ */
+function titan_header_scripts_custom() {
+	?>
+
+<?php }
+add_action( 'wp_head', 'titan_header_scripts_custom' );
+
+/**
+ * adds scripts to the footer of the site
+ */
+function titan_footer_scripts_custom() {
+?>
+
+<?php }
+add_action( 'wp_footer', 'titan_footer_scripts_custom' );
+
 
 /**
  * Removes the WordPress version number from anywhere it might be for security reasons
