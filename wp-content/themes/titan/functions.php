@@ -137,6 +137,22 @@ function titan_footer_scripts_custom() {
 <?php }
 add_action( 'wp_footer', 'titan_footer_scripts_custom' );
 
+/**
+ * get the svg code for a specific svg from the build folder
+ */
+function include_svg( $svg, $return = false ){
+    $svg_path = get_template_directory() . '/svg/build/' . $svg . '.svg';
+
+    if(!file_exists($svg_path)){
+        return false;
+    }
+
+    if($return){
+        return file_get_contents($svg_path);
+    }
+
+    include( $svg_path );
+}
 
 /**
  * Removes the WordPress version number from anywhere it might be for security reasons
