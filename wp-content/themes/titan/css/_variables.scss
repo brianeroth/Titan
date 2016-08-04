@@ -5,6 +5,8 @@ $font-stack: sans-serif;
 $font-size: 16px;
 $line-height: 1.4em;
 
+$columns: 2, 3, 4, 5;
+
 @mixin inline-middle(){
     vertical-align: middle;
     display: inline-block;
@@ -95,10 +97,10 @@ $line-height: 1.4em;
   100% { opacity: 1; }
 }
 
-// $desktop: ;
-// $small-desktop: ;
-// $tablet: ;
-// $phone: ;
+$desktop: 0px;
+$small-desktop: 0px;
+$tablet: 0px;
+$phone: 0px;
 
 @mixin desktop {
   @media ( min-width: $desktop ){
