@@ -9,21 +9,15 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+	<section class="error-404 not-found">
+		<header class="page-header">
+			<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'titan' ); ?></h1>
+		</header>
 
-			<section class="error-404 not-found">
-				<header class="page-header">
-					<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'titan' ); ?></h1>
-				</header>
-
-				<div class="page-content">
-					<p><?php esc_html_e( '404 Error', 'titan' ); ?></p>
-				</div>
-			</section>
-
-		</main>
-	</div>
+		<div class="page-content">
+			<p><?php esc_html_e( '404 Error', 'titan' ); ?></p>
+		</div>
+	</section>
 
 <?php
 get_footer();

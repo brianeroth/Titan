@@ -143,4 +143,11 @@ function titan_the_page_blocks(){
 	            <?php get_template_part('blocks/block', $block); ?>
 	        </section><!-- .titan-block -->
 	    <?php endwhile; endif; ?>
-<?php } ?>
+<?php }
+
+/**
+ * renders the hero on the page
+ */
+function titan_render_hero(){ ?>
+
+<?php }
