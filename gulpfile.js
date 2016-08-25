@@ -7,31 +7,34 @@ var gulp       = require('gulp'),
 
 var themeDir = 'wp-content/themes/titan/';
 
-gulp.task('default', ['styles', 'scripts'], function() {
-    gulp.src( themeDir + 'svg/*.svg' )
-        .pipe(svgmin())
-        .pipe(gulp.dest( themeDir + '/svg/build'));
-
-    gulp.watch( themeDir + 'css/*.scss' , ['styles']);
-    gulp.watch( themeDir + 'js/*.js' , ['scripts']);
+gulp.task('default', ['styles', 'scripts', 'svgs'], function() {
+    gulp.watch( themeDir + 'css/*.scss' , ['styles'] );
+    gulp.watch( themeDir + 'js/*.js' , ['scripts'] );
+    gulp.watch( themeDir + 'svg/*.svg' , ['svgs'] );
 });
 
-gulp.task('styles', function(){
-    gulp.src( themeDir + 'css/*.scss')
+gulp.task('styles', function() {
+    gulp.src( themeDir + 'css/*.scss' )
         .pipe(sourcemaps.init())
         .pipe(sass({
             outputStyle: 'compressed',
             errLogToConsole: true
         }).on('error', sass.logError))
-        .pipe( sourcemaps.write('.', {
+        .pipe(sourcemaps.write('.', {
             includeContent: false, sourceRoot: 'src'
-        }) )
+        }))
         .pipe(gulp.dest( themeDir + 'css/build/' ));
+});
+
+gulp.task('svgs', function() {
+    gulp.src( themeDir + 'svg/*.svg' )
+	    .pipe(svgmin())
+	    .pipe(gulp.dest( themeDir + 'svg/build/' ));
 });
 
 gulp.task('scripts', function() {
   gulp.src( themeDir + 'js/*.js' )
-    .pipe( concat('production.min.js') )
-    .pipe( uglify() )
-    .pipe(gulp.dest( themeDir + 'js/build/' ))
+    .pipe(concat('production.min.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest( themeDir + 'js/build/' ));
 });
