@@ -1,28 +1,20 @@
 (function(TI, $, undefined){
-
-    var $window,
-        $body;
-
+    
     //
-    // functions
+    // initializes all of the sliders on the page
+    // all options for the slider here: http://kenwheeler.github.io/slick/
     //
-
-
-    //
-    // init
-    //
-    TI.init = function(){
-
-        $window = $(window);
-        $body   = $('body');
-
+    function initSlickSliders() {
+        $('.slider').slick();
     }
 
     // -------------------------------
     // DOM ready
     //
     $(document).ready(function(){
-        TI.init();
+
+        initSlickSliders();
+    
     });
 
 })(window.TI = window.TI || {}, jQuery);

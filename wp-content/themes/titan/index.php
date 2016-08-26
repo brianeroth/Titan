@@ -14,6 +14,15 @@
 
 get_header(); ?>
 
+	<div class="slider">
+		<div class="slide">
+			test
+		</div>
+		<div class="slide">
+			test again
+		</div>
+	</div>
+
 	<?php
 	if ( have_posts() ) :
 
